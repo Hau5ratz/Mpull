@@ -13,7 +13,7 @@ def query(x):
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
 	result = soup.find_all("div", {"class": "g"})
-	r = result.find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
+	r = result[0].find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
 	p(r)
 	return r['href']
 
