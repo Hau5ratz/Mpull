@@ -40,17 +40,19 @@ def clean(name):
 def download(url):
 	os.system(yt_dl%url)
 	
-
+lines = []
 if sys.argv[1:]:
 	for x in sys.argv[1:]:
 		assert isinstance(x, str), "Invalid arguement type must be song name as string"
-		print("Searching for song: %s"%x)
-		dll += [query(clean(x))]
+		lines += [x]
 else:
 	assert os.path.isfile(notes), "File path still not valid"
 	with open(notes,'r') as file:
-		lines = file.readlines()
-		p(lines)
+		lines = [x.replace('\n','') for x in file.readlines()]
+		
+for x in lines:
+	print("Searching for song: %s"%x)
+	dll += [query(clean(x))]		
 	
 [download(y) for y in dll]
 print("Finished")
