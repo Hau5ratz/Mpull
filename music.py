@@ -1,8 +1,10 @@
 import sys
+import os
 import requests
 from bs4 import BeautifulSoup
 from pprint import pprint as p
 
+os.system("clear")
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
 template = "https://www.google.com/search?q=site%3Awww.youtube.com+%s"
 dll = []
@@ -14,11 +16,7 @@ def query(x):
 	soup = BeautifulSoup(result.content, features="html.parser")
 	results = soup.find_all("div", {"class": "g"})
 	p(results)
-	
-	'''
-	r = result[0].find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
-	p(r)
-	return r['href']'''
+
 
 def clean(name):
 	'''Transforms text name to query valid syntax'''
