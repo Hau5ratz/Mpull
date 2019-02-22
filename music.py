@@ -6,7 +6,7 @@ from pprint import pprint as p
 
 os.system("clear")
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
-template = "https://www.google.com/search?q=site%3Awww.youtube.com+%s"
+template = "https://www.google.com/search?q=site%%3Awww.youtube.com+%s"
 dll = []
 
 def query(x):
