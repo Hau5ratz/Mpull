@@ -47,7 +47,7 @@ if sys.argv[1:]:
 		print("Searching for song: %s"%x)
 		dll += [query(clean(x))]
 else:
-	assert os.path.isdir(notes), "File path still not valid"
+	assert os.path.isfile(notes), "File path still not valid"
 	with open(notes,'r') as file:
 		lines = file.readlines()
 		p(lines)
