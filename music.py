@@ -11,6 +11,7 @@ dll = []
 
 def query(x):
 	'''Takes song name queries google and returns URL'''
+	b = []
 	result = requests.get(template%x)
 	print("Query = %s"%(template%x))
 	assert result.status_code == 200, "Error with connection to google"
@@ -19,7 +20,8 @@ def query(x):
 	for tag in results:
 		cites = tag.find_all("cite")
 		for c in cites:
-			print(c.text)
+			b += [c.text]
+	return b[0]
 		
 
 
@@ -35,3 +37,4 @@ if sys.argv[1:]:
 		assert isinstance(x, str), "Invalid arguement type must be song name as string"
 		print("Searching for song: %s"%x)
 		dll += [query(clean(x))]
+		p(dll)
