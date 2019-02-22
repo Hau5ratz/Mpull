@@ -5,8 +5,12 @@ from bs4 import BeautifulSoup
 from pprint import pprint as p
 
 os.system("clear")
+
+d = "/data/data/com.termux/files/home/storage/music/"
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
 template = "https://www.google.com/search?q=site%%3Awww.youtube.com+%s"
+yt_dl = "youtube-dl --extract-audio --audio-format mp3 %s"
+os.chdir(d)
 dll = []
 
 def query(x):
@@ -32,9 +36,13 @@ def clean(name):
 		name = name.replace(' ','+')
 	return name
 
+def download(url):
+	os.system(yt_dl%url)
+	
+
 if sys.argv[1:]:
 	for x in sys.argv[1:]:
 		assert isinstance(x, str), "Invalid arguement type must be song name as string"
 		print("Searching for song: %s"%x)
 		dll += [query(clean(x))]
-		p(dll)
+		[download(y) for y in dll]
