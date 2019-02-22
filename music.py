@@ -14,7 +14,7 @@ def query(x):
 	result = requests.get(template)
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
-	results = soup.find_all('a', href=True)
+	results = soup.find_all('cite')
 	p(results)
 
 
