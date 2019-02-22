@@ -15,8 +15,8 @@ def query(x):
 	print("Query = %s"%(template%x))
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
-	results = soup.find_all("div", {"class": "g"})
-	p(results)
+	result = soup.find_all("div", {"class": "g"})[0]
+	p(result.findChildren())
 
 
 def clean(name):
