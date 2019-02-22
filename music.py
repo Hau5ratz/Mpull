@@ -16,7 +16,11 @@ def query(x):
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
 	results = soup.find_all("div", {"class": "g"})
-	p(results)
+	for tag in results:
+		cites = tag.find_all("cite")
+		for c in cites:
+			print(c.text)
+		
 
 
 def clean(name):
