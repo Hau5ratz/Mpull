@@ -7,6 +7,7 @@ from pprint import pprint as p
 os.system("clear")
 
 d = "/data/data/com.termux/files/home/storage/music/"
+notes = "data/data/com.termux/files/home/storage/shared/My Documents/notes/Songs.txt"
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
 template = "https://www.google.com/search?q=site%%3Awww.youtube.com+%s"
 yt_dl = "youtube-dl --extract-audio --audio-format mp3 %s"
@@ -45,5 +46,10 @@ if sys.argv[1:]:
 		assert isinstance(x, str), "Invalid arguement type must be song name as string"
 		print("Searching for song: %s"%x)
 		dll += [query(clean(x))]
-		[download(y) for y in dll]
-		print("Finished")
+else:
+	with open(notes,'r') as file:
+		lines = file.readlines()
+		p(lines)
+	
+[download(y) for y in dll]
+print("Finished")
