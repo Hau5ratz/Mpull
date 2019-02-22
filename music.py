@@ -14,8 +14,11 @@ def query(x):
 	result = requests.get(template)
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
-	results = soup.find_all('cite')
-	p(results)
+	results = soup.find_all("div", {"class": "g"})
+	children = []
+	for x in results:
+		children += result.findChildren("a" , recursive=False)
+	p(children)
 
 
 def clean(name):
