@@ -12,10 +12,13 @@ def query(x):
 	result = requests.get(template)
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
-	result = soup.find_all("div", {"class": "g"})
+	results = soup.find_all("div", {"class": "g"})
+	p(results)
+	
+	'''
 	r = result[0].find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
 	p(r)
-	return r['href']
+	return r['href']'''
 
 def clean(name):
 	'''Transforms text name to query valid syntax'''
