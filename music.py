@@ -11,7 +11,7 @@ def query(x):
 	'''Takes song name queries google and returns URL'''
 	result = requests.get(template)
 	assert result.status_code == 200, "Error with connection to google"
-	soup = BeautifulSoup(result.content)
+	soup = BeautifulSoup(result.content, features="html.parser")
 	result = soup.find_all("div", {"class": "g"})
 	r = result.find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
 	p(r)
