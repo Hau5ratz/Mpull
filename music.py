@@ -11,7 +11,8 @@ dll = []
 
 def query(x):
 	'''Takes song name queries google and returns URL'''
-	print(template)
+	for y in template:
+		print(y)
 	print(x)
 	result = requests.get(template%x)
 	print("Query = %s"%(template%x))
