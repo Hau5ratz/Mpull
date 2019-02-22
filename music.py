@@ -14,8 +14,8 @@ def query(x):
 	result = requests.get(template)
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
-	result = soup.find_all("div", {"class": "g"})[0]
-	p(result.find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))[0])
+	results = soup.find_all('a', href=True)
+	p(results)
 
 
 def clean(name):
