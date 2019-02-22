@@ -11,9 +11,6 @@ dll = []
 
 def query(x):
 	'''Takes song name queries google and returns URL'''
-	for y in template:
-		print(y)
-	print(x)
 	result = requests.get(template%x)
 	print("Query = %s"%(template%x))
 	assert result.status_code == 200, "Error with connection to google"
