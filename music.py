@@ -4,13 +4,7 @@ from bs4 import BeautifulSoup
 
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
 template = "https://www.google.com/search?q=site%3Awww.youtube.com+%s"
-
 dll = []
-if sys.argv[1:]:
-	for x in sys.argv[1:]:
-		assert isinstance(x, str), "Invalid arguement type must be song name as string"
-		print("Searching for song: %s"%x)
-		dll += [query(clean(x))]
 
 def query(x):
 	'''Takes song name queries google and returns URL'''
@@ -27,3 +21,9 @@ def clean(name):
 		\
 		name = name.replace(' ','+')
 	return name
+
+if sys.argv[1:]:
+	for x in sys.argv[1:]:
+		assert isinstance(x, str), "Invalid arguement type must be song name as string"
+		print("Searching for song: %s"%x)
+		dll += [query(clean(x))]
