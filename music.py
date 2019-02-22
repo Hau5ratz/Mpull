@@ -46,3 +46,4 @@ if sys.argv[1:]:
 		print("Searching for song: %s"%x)
 		dll += [query(clean(x))]
 		[download(y) for y in dll]
+		print("Finished")
