@@ -18,7 +18,6 @@ def query(x):
 	'''Takes song name queries google and returns URL'''
 	b = []
 	result = requests.get(template%x)
-	print("Query = %s"%(template%x))
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
 	results = soup.find_all("div", {"class": "g"})
@@ -52,7 +51,8 @@ else:
 		
 for x in lines:
 	print("Searching for song: %s"%x)
-	dll += [query(clean(x))]		
+	dll += [query(clean(x))]
+	print("Found: %s"%(dll[-1])
 	
 [download(y) for y in dll]
 print("Finished")
