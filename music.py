@@ -7,7 +7,7 @@ from pprint import pprint as p
 os.system("clear")
 
 d = "/data/data/com.termux/files/home/storage/music/"
-notes = "data/data/com.termux/files/home/storage/shared/My Documents/notes/"
+notes = "/data/data/com.termux/files/home/storage/shared/My Documents/notes/Songs.txt" 
 sample = "https://www.google.com/search?q=site%3Awww.youtube.com+i+like+to+singa"
 template = "https://www.google.com/search?q=site%%3Awww.youtube.com+%s"
 yt_dl = "youtube-dl --extract-audio --audio-format mp3 %s"
