@@ -13,6 +13,7 @@ def query(x):
 	soup = BeautifulSoup(result.content)
 	result = soup.find_all("div", {"class": "g"})[0]
 	r = result.find_all(lambda tag: tag.name == 'a' and tag.has_attr('href'))
+	print(r)
 	return r['href']
 
 def clean(name):
