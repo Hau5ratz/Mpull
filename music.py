@@ -18,7 +18,7 @@ def query(x):
 	results = soup.find_all("div", {"class": "g"})
 	children = []
 	for x in results:
-		children += result.findChildren("a" , recursive=False)
+		children += result.findChildren(recursive=False)
 	p(children)
 
 
