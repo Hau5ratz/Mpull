@@ -11,7 +11,7 @@ dll = []
 
 def query(x):
 	'''Takes song name queries google and returns URL'''
-	result = requests.get(template)
+	result = requests.get(template%x)
 	assert result.status_code == 200, "Error with connection to google"
 	soup = BeautifulSoup(result.content, features="html.parser")
 	results = soup.find_all("div", {"class": "g"})
